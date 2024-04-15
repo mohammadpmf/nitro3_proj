@@ -1,0 +1,11 @@
+1- Sakhte Database e api_nitro_db dar mysql.
+2- Taghire settings.py ke be api_nitro_db vasl she be jaye sqlite.
+3- nasbe mysqlclient ba pip install mysqlclient.
+4- runserver
+age runserver kar nakard va error dad, dar in soorat:
+    1) nasbe pymysql ba pip install pymysql
+    2) ezafe kardane 2 khatte zir dar faile __init__.py az directory config (kenare settings.py)
+        import pymysql
+        pymysql.install_as_MySQLdb()
+    3) runserver
+    # link e stackoverflow in moshkel: https://stackoverflow.com/questions/46902357/error-loading-mysqldb-module-did-you-install-mysqlclient-or-mysql-python
