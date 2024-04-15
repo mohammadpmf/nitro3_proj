@@ -1,45 +1,6 @@
 ۱- یو آر الی بر اساس اطلاعات کلی فیلم های موجود در دیتابیس
 ۲- توانایی سرچ کردن بر اساس نام فیلم و دریافت اطلاعات کلی
-۳- اضافه کردن فیلم با رکوئست پست به برنامه که این اطلاعات رو داره
-نام اجباری
-پوستر فیلم اجباری
-سال ساخت اجباری
-کشور سازنده اجباری
-کارگردان اختیاری
-ریتینگ آی ام دی بی اختیاری
-۴- گرفتن جزییات یک فیلم که این موارد رو داره
-{
-
-writer: "Stephen King (short story "Rita Hayworth and Shawshank Redemption"), Frank Darabont (screenplay)",
-actors: "Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler",
-plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-country: "USA",
-awards: "Nominated for 7 Oscars. Another 19 wins &amp; 30 nominations.",
-metascore: "80",
-imdb_rating: "9.3",
-imdb_votes: "1,738,596",
-imdb_id: "tt0111161",
-type: "movie",
-genres: [
-"Crime",
-"Drama"
-],
-images: [
-"http://moviesapi.ir/images/tt0111161_screenshot1.jpg",
-"http://moviesapi.ir/images/tt0111161_screenshot2.jpg",
-"http://moviesapi.ir/images/tt0111161_screenshot3.jpg"
-]
-}
+۳- اضافه کردن فیلم با رکوئست پست به برنامه
+۴- گرفتن جزییات یک فیلم
 ۵- گرفتن تمام ژانرهای موجود در سایت
 ۶- گرفتن تمام فیلم ها از یک ژانر خاص
-۷- ساخت کاربر جدید در سایت
-id: 23,
-name: "Abbas Ov",
-username: "abcd",
-password: "aaa",
-email: "abbas@oveissi.ir",
-created_at: "2020-10-10 12:12:23",
-updated_at: "2020-10-10 12:12:23"
-
-اگه چیز بیشتری خواستم از اینجا.
-https://moviesapi.ir/
