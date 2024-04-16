@@ -1,11 +1,20 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .serializers import MovieSerializer
+
+from .models import Movie
+
 @api_view()
 def movie_list(request):
-    return Response('hello')
+    movies_queryset = Movie.objects.all()    
+    serializer = MovieSerializer(movies_queryset, many=True)
+    return Response(serializer.data)
 
 @api_view()
 def movie_detail(request, pk):
-    return Response(f'hello {pk}')
+    movie = get_object_or_404(Movie, pk=pk)
+    serializer = MovieSerializer(movie)
+    return Response(serializer.data)
 
