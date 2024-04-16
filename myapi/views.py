@@ -32,7 +32,7 @@ def serial_detail(request, pk):
 
 @api_view()
 def music_list(request):
-    music_queryset = Music.objects.all().select_related('main_singer')
+    music_queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
     serializer = MusicSerializer(music_queryset, many=True)
     return Response(serializer.data)
 
