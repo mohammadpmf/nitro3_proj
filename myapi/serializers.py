@@ -3,6 +3,14 @@ from rest_framework import serializers
 from .models import Artist, Movie, Music, Serial
 
 
+class GenreMovieSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=256)
+
+
+class GenreMusicSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=256)
+
+
 class ArtistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artist
@@ -42,11 +50,13 @@ class SerialSerializer(serializers.ModelSerializer):
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        exclude = ['datetime_created', 'datetime_modified', 'genre', 'other_singers']
+        exclude = ['datetime_created', 'datetime_modified']
 
     main_singer = ArtistSerializer()
     duration_seconds = serializers.SerializerMethodField()
     duration_minutes = serializers.SerializerMethodField()
+    genre = [GenreMusicSerializer()]
+    other_singers = [ArtistSerializer()]
 
     def get_duration_seconds(self, music):
         return f"{music.duration} seconds"
