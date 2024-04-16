@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Artist, Movie, Serial
+from .models import Artist, Movie, Music, Serial
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -39,17 +39,21 @@ class SerialSerializer(serializers.ModelSerializer):
         return f"{serial.average_runtime} minutes"
     
 
-class MusicSerializer(serializers.Serializer):
-    title = serializers.CharField()
-    year = serializers.IntegerField()
-    duration = serializers.IntegerField()
-    duration_seconds = serializers.SerializerMethodField()
-    duration_minutes = serializers.SerializerMethodField()
-    main_singer = ArtistSerializer()
-    file = serializers.FileField()
-    lyrics = serializers.CharField()
-    poster = serializers.ImageField()
-    release_date = serializers.DateField()
+class MusicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Music
+        fields = "__all__"
+    # title = serializers.CharField()
+    # year = serializers.IntegerField()
+    # duration = serializers.IntegerField()
+    # duration_seconds = serializers.SerializerMethodField()
+    # duration_minutes = serializers.SerializerMethodField()
+    # main_singer = ArtistSerializer()
+    # file = serializers.FileField()
+    # lyrics = serializers.CharField()
+    # poster = serializers.ImageField()
+    # release_date = serializers.DateField()
+
     # genre = serializers.CharField()
     # other_singers = serializers.CharField()
     # datetime_created = serializers.CharField()
