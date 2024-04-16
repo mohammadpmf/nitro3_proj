@@ -1,0 +1,12 @@
+1- pip install Faker
+2- pip install factory-boy
+3- sakhte file factories.py dar app e myapi
+4- sakhte folder e management dar app e myapi va sakhte folder e commands dar folder e management va sakhte file e setup_fake_data.py dar folder e commands
+5- ejraye dastoore py manage.py setup_fake_data ta ettela'ate fake ro ezafe koneh.
+age error dad. be khatere ine ke ettela'ati az ghabl toosh hast ke file e setup_fake_data nemitoone pakesh koneh. chon bazi ha ro model e projected gozashtim.
+too in halat mishe dasti database ro paak kard va az avval makemigrations va ba'd migrate zad va bad ham setup_fake_data.
+albatte ye rahe halle dg ine ke khotoote zir ro az dakhele setup_fake_data bardarim.
+for m in models:
+    m.objects.all().delete()
+vaghti nakhad paak kone dg error ham nemideh.
+kholase ba'd az zadane py manage.py setup_fake_data ettela'ate fake bayad varede database she.
