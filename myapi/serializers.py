@@ -6,6 +6,7 @@ class MovieSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=256)
     year = serializers.IntegerField()
     runtime = serializers.IntegerField()
+    runtime_minutes = serializers.SerializerMethodField()
     status = serializers.CharField()
     director = serializers.CharField()
     country = serializers.CharField()
@@ -17,3 +18,6 @@ class MovieSerializer(serializers.Serializer):
     # cast = serializers.CharField()
     # datetime_created = serializers.CharField()
     # datetime_modified = serializers.CharField()
+
+    def get_runtime_minutes(self, movie):
+        return f"{movie.runtime} minutes"
