@@ -8,7 +8,7 @@ from .models import Movie, Serial, Music
 
 @api_view()
 def movie_list(request):
-    movies_queryset = Movie.objects.all().select_related('director')
+    movies_queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
     serializer = MovieSerializer(movies_queryset, many=True)
     return Response(serializer.data)
 
@@ -20,7 +20,7 @@ def movie_detail(request, pk):
 
 @api_view()
 def serial_list(request):
-    series_queryset = Serial.objects.all().select_related('director')
+    series_queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
     serializer = SerialSerializer(series_queryset, many=True)
     return Response(serializer.data)
 

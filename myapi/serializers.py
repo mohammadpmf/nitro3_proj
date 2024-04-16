@@ -22,12 +22,12 @@ class MovieSerializer(serializers.ModelSerializer):
         model = Movie
         fields = ['id', 'title', 'year', 'runtime', 'runtime_minutes',
                   'status', 'director', 'country', 'plot', 'poster',
-                  'rating', 'release_date']
+                  'rating', 'release_date', 'genre', 'cast']
     
     runtime_minutes = serializers.SerializerMethodField()
     director = ArtistSerializer()
-    # genre = serializers.CharField()
-    # cast = serializers.CharField()
+    genre = [GenreMovieSerializer()]
+    cast = [ArtistSerializer()]
     # datetime_created = serializers.CharField()
     # datetime_modified = serializers.CharField()
 
@@ -38,10 +38,12 @@ class MovieSerializer(serializers.ModelSerializer):
 class SerialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Serial
-        exclude = ['genre', 'cast', 'datetime_created', 'datetime_modified']
+        exclude = ['datetime_created', 'datetime_modified']
 
     director = ArtistSerializer()
     average_runtime_minutes = serializers.SerializerMethodField()
+    genre = [GenreMovieSerializer()]
+    cast = [ArtistSerializer()]
 
     def get_average_runtime_minutes(self, serial):
         return f"{serial.average_runtime} minutes"
