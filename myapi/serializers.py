@@ -42,22 +42,11 @@ class SerialSerializer(serializers.ModelSerializer):
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        fields = "__all__"
-    # title = serializers.CharField()
-    # year = serializers.IntegerField()
-    # duration = serializers.IntegerField()
-    # duration_seconds = serializers.SerializerMethodField()
-    # duration_minutes = serializers.SerializerMethodField()
-    # main_singer = ArtistSerializer()
-    # file = serializers.FileField()
-    # lyrics = serializers.CharField()
-    # poster = serializers.ImageField()
-    # release_date = serializers.DateField()
+        exclude = ['datetime_created', 'datetime_modified', 'genre', 'other_singers']
 
-    # genre = serializers.CharField()
-    # other_singers = serializers.CharField()
-    # datetime_created = serializers.CharField()
-    # datetime_modified = serializers.CharField()
+    main_singer = ArtistSerializer()
+    duration_seconds = serializers.SerializerMethodField()
+    duration_minutes = serializers.SerializerMethodField()
 
     def get_duration_seconds(self, music):
         return f"{music.duration} seconds"
