@@ -8,7 +8,7 @@ class MovieSerializer(serializers.Serializer):
     runtime = serializers.IntegerField()
     runtime_minutes = serializers.SerializerMethodField()
     status = serializers.CharField()
-    director = serializers.CharField()
+    director = serializers.StringRelatedField()
     country = serializers.CharField()
     plot = serializers.CharField()
     poster = serializers.ImageField()
