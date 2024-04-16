@@ -1,0 +1,6 @@
+DRF => Django Rest Framework
+
+1- pip install djangorestframework
+2- ezafe kardanesh dar settings.py ba neveshtane string e 'rest_framework' (hatman ba'd az apphaye django va ghabl az app haye khodemoon bashe.)
+3- estefade az decorator e api_view ghab az name tabe.
+4- estefade az class e Response e mojood dar rest_framework
