@@ -1,20 +1,6 @@
 from rest_framework import serializers
 
-from .models import Artist, Movie, Music, Serial
-
-
-class GenreMovieSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=64)
-
-
-class GenreMusicSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=64)
-
-
-class ArtistSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Artist
-        fields = ['id', 'first_name', 'last_name', 'nick_name', 'birth_date']
+from .models import Movie, Music, Serial
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -23,14 +9,9 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'year', 'runtime', 'runtime_minutes',
                   'status', 'director', 'country', 'plot', 'poster',
                   'rating', 'release_date', 'genre', 'cast']
-        depth=2
+        depth=1
     
     runtime_minutes = serializers.SerializerMethodField()
-    director = ArtistSerializer()
-    genre = [GenreMovieSerializer()]
-    cast = [ArtistSerializer()]
-    # datetime_created = serializers.CharField()
-    # datetime_modified = serializers.CharField()
 
     def get_runtime_minutes(self, movie):
         return f"{movie.runtime} minutes"
@@ -40,9 +21,8 @@ class SerialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Serial
         exclude = ['datetime_created', 'datetime_modified']
-        depth=2
+        depth=1
 
-    director = ArtistSerializer()
     average_runtime_minutes = serializers.SerializerMethodField()
 
     def get_average_runtime_minutes(self, serial):
@@ -53,13 +33,10 @@ class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
         exclude = ['datetime_created', 'datetime_modified']
-        depth=2
+        depth=1
 
-    main_singer = ArtistSerializer()
     duration_seconds = serializers.SerializerMethodField()
     duration_minutes = serializers.SerializerMethodField()
-    genre = [GenreMusicSerializer()]
-    other_singers = [ArtistSerializer()]
 
     def get_duration_seconds(self, music):
         return f"{music.duration} seconds"
@@ -70,7 +47,6 @@ class MusicSerializer(serializers.ModelSerializer):
         s = t%60
         return f"{m:02}:{s:02}"
     
-
 
 
 
