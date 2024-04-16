@@ -4,11 +4,11 @@ from .models import Artist, Movie, Music, Serial
 
 
 class GenreMovieSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=256)
+    title = serializers.CharField(max_length=64)
 
 
 class GenreMusicSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=256)
+    title = serializers.CharField(max_length=64)
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -23,6 +23,7 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'year', 'runtime', 'runtime_minutes',
                   'status', 'director', 'country', 'plot', 'poster',
                   'rating', 'release_date', 'genre', 'cast']
+        depth=2
     
     runtime_minutes = serializers.SerializerMethodField()
     director = ArtistSerializer()
@@ -39,11 +40,10 @@ class SerialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Serial
         exclude = ['datetime_created', 'datetime_modified']
+        depth=2
 
     director = ArtistSerializer()
     average_runtime_minutes = serializers.SerializerMethodField()
-    genre = [GenreMovieSerializer()]
-    cast = [ArtistSerializer()]
 
     def get_average_runtime_minutes(self, serial):
         return f"{serial.average_runtime} minutes"
@@ -53,6 +53,7 @@ class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
         exclude = ['datetime_created', 'datetime_modified']
+        depth=2
 
     main_singer = ArtistSerializer()
     duration_seconds = serializers.SerializerMethodField()
