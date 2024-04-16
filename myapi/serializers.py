@@ -1,5 +1,11 @@
 from rest_framework import serializers
 
+class ArtistSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    first_name = serializers.CharField()
+    last_name = serializers.CharField()
+    nick_name = serializers.CharField()
+    birth_date = serializers.DateField()
 
 class MovieSerializer(serializers.Serializer):
     id = serializers.IntegerField()
@@ -8,7 +14,7 @@ class MovieSerializer(serializers.Serializer):
     runtime = serializers.IntegerField()
     runtime_minutes = serializers.SerializerMethodField()
     status = serializers.CharField()
-    director = serializers.StringRelatedField()
+    director = ArtistSerializer()
     country = serializers.CharField()
     plot = serializers.CharField()
     poster = serializers.ImageField()
