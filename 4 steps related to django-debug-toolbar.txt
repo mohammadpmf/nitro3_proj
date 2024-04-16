@@ -1,0 +1,16 @@
+https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+
+1- pip install django-debug-toolbar
+2- ezafe kardane string e 'debug_toolbar' dar settings.py ba'd az app haye django va ghabl az app haye khodemoon.
+3- ezafe kardan e masire zir dar file e urls.py az config e proje
+path("__debug__/", include("debug_toolbar.urls")),
+4- ezafe kardane string e zir be onvane avvalin middleware dar settings.py
+"debug_toolbar.middleware.DebugToolbarMiddleware",
+deghat konam ke too khode sitesh ham neveshte bayad avvali bashe. be gheyr az bazi az middleware haye dg ke felan too proje oonha nistand. pas in ro mizarim ghabl az chizhayi ke ta hala boodand. yani avvalin ozve list e MIDDLEWARE dar file e settings.py
+5- tarife motaghayere jadid dar settings.py be soorate zir:
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+naneveshte bood koja.
+hamoonja ba'd az MIDDLEWARE tarif kardam.
+6- tamam. too safhate mokhtalef ke mirim samte raste proje miare ke mitoonim azash estefadeh konim va ba bakhshe sql kheyli kar darim.
