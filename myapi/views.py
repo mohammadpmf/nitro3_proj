@@ -21,11 +21,19 @@ def movie_list(request):
         return Response(serializer.data)
 
 
-@api_view()
+@api_view(['GET', 'PUT'])
 def movie_detail(request, pk):
     movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
-    serializer = MovieSerializer(movie)
-    return Response(serializer.data)
+    if request.method=='GET':
+        serializer = MovieSerializer(movie)
+        return Response(serializer.data)
+    elif request.method=='PUT':
+        MovieSerializer.Meta.depth=0
+        serializer = MovieSerializer(movie, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        MovieSerializer.Meta.depth=1
+        return Response(serializer.data)
     
 
 @api_view()

@@ -22,6 +22,11 @@ class MovieSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(f'The year {ALAKI_YEAR} was after WW2 and no movies released in {ALAKI_YEAR}!')
         return data
     
+    # اگر تابع update رو بنویسیم، مطابق چیزی که ما نوشتیم عمل میکنه. اگه ننویسیم از دیفالت خودش استفاده میکنه.
+    # def update(self, instance: Movie, validated_data):
+    #     instance.plot = validated_data.get('plot', "اگه پلات ارسال نشده بود این رو بنویس :دی هر چیز دیگه ای رو هم میشه تغییر داد. نمونه نوشتم که داشته باشیم.")
+    #     instance.save()
+    #     return instance
 
 class SerialSerializer(serializers.ModelSerializer):
     class Meta:
