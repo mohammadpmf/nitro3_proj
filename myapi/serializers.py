@@ -9,7 +9,7 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'year', 'runtime', 'runtime_minutes',
                   'status', 'director', 'country', 'plot', 'poster',
                   'rating', 'release_date', 'genre', 'cast']
-        depth=1
+        # depth=1
     
     runtime_minutes = serializers.SerializerMethodField()
 
@@ -21,6 +21,11 @@ class MovieSerializer(serializers.ModelSerializer):
         if data['year']==ALAKI_YEAR:
             raise serializers.ValidationError(f'The year {ALAKI_YEAR} was after WW2 and no movies released in {ALAKI_YEAR}!')
         return data
+    
+    # def create(self, validated_data):
+    #     movie = Movie(**validated_data)
+    #     print(movie)
+    #     return movie
     
 
 class SerialSerializer(serializers.ModelSerializer):

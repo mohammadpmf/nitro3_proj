@@ -21,8 +21,8 @@ def movie_detail(request, pk):
     elif request.method=='POST':
         serializer = MovieSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.validated_data
-        return Response('ok')
+        serializer.save()
+        return Response(serializer.data)
 
 @api_view()
 def serial_list(request):
