@@ -19,9 +19,11 @@ def movie_detail(request, pk):
         serializer = MovieSerializer(movie)
         return Response(serializer.data)
     elif request.method=='POST':
+        MovieSerializer.Meta.depth=0
         serializer = MovieSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        MovieSerializer.Meta.depth=1
         return Response(serializer.data)
 
 @api_view()
