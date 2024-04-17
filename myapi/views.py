@@ -12,11 +12,17 @@ def movie_list(request):
     serializer = MovieSerializer(movies_queryset, many=True)
     return Response(serializer.data)
 
-@api_view()
+@api_view(['GET', 'POST'])
 def movie_detail(request, pk):
-    movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
-    serializer = MovieSerializer(movie)
-    return Response(serializer.data)
+    if request.method=='GET':
+        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+        serializer = MovieSerializer(movie)
+        return Response(serializer.data)
+    elif request.method=='POST':
+        serializer = MovieSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.validated_data
+        return Response('ok')
 
 @api_view()
 def serial_list(request):
