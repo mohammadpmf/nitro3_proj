@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
@@ -11,29 +12,32 @@ def movie_list(request):
     if request.method=='GET':
         movies_queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
         serializer = MovieSerializer(movies_queryset, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method=='POST':
         MovieSerializer.Meta.depth=0
         serializer = MovieSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         MovieSerializer.Meta.depth=1
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def movie_detail(request, pk):
     movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
     if request.method=='GET':
         serializer = MovieSerializer(movie)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method=='PUT':
         MovieSerializer.Meta.depth=0
         serializer = MovieSerializer(movie, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         MovieSerializer.Meta.depth=1
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method=='DELETE':
+        movie.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
 
 @api_view()
