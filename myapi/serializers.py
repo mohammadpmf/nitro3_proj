@@ -1,17 +1,40 @@
 from rest_framework import serializers
 
-from .models import Movie, Music, Serial
+from .models import Artist, GenreMovie, GenreMusic, Movie, Music, Serial
+
+
+class ArtistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artist
+        fields = ['id', 'first_name', 'last_name', 'nick_name', 'birth_date']
+
+
+class GenreMovieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GenreMovie
+        fields = ['id', 'title']
+
+
+class GenreMusicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GenreMusic
+        fields = ['id', 'title']
 
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ['id', 'title', 'year', 'runtime', 'runtime_minutes',
-                  'status', 'director', 'country', 'plot', 'poster',
+                  'status', 'director', 'director_info', 'country', 'plot', 'poster',
                   'rating', 'release_date', 'genre', 'cast']
-        depth=1
     
     runtime_minutes = serializers.SerializerMethodField()
+    director = serializers.PrimaryKeyRelatedField(
+        queryset = Artist.objects.all()
+    )
+    director_info = ArtistSerializer(source='director', read_only=True)
+    genre = serializers.ListSerializer(child = GenreMovieSerializer(), read_only=True)
+    cast = serializers.ListSerializer(child = ArtistSerializer(), read_only=True)
 
     def get_runtime_minutes(self, movie):
         return f"{movie.runtime} minutes"

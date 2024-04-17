@@ -3,25 +3,31 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework.generics import ListCreateAPIView
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
 from .models import Movie, Serial, Music
 
 
-class MovieList(APIView):
-    def get(self, request):
-        movies_queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
-        serializer = MovieSerializer(movies_queryset, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+class MovieList(ListCreateAPIView):
+    serializer_class = MovieSerializer
+    queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
 
-    def post(self, request):
-        MovieSerializer.Meta.depth=0
-        serializer = MovieSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        MovieSerializer.Meta.depth=1
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+# class MovieList(APIView):
+#     def get(self, request):
+#         movies_queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
+#         serializer = MovieSerializer(movies_queryset, many=True)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+
+#     def post(self, request):
+#         MovieSerializer.Meta.depth=0
+#         serializer = MovieSerializer(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#         MovieSerializer.Meta.depth=1
+#         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET', 'POST'])
