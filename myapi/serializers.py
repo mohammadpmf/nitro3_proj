@@ -33,8 +33,8 @@ class MovieSerializer(serializers.ModelSerializer):
         queryset = Artist.objects.all()
     )
     director_info = ArtistSerializer(source='director', read_only=True)
-    genre = serializers.ListSerializer(child = GenreMovieSerializer(), read_only=True)
-    cast = serializers.ListSerializer(child = ArtistSerializer(), read_only=True)
+    genre = GenreMovieSerializer(many=True, read_only=True)
+    cast = ArtistSerializer(many=True, read_only=True)
 
     def get_runtime_minutes(self, movie):
         return f"{movie.runtime} minutes"
