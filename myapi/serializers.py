@@ -16,6 +16,12 @@ class MovieSerializer(serializers.ModelSerializer):
     def get_runtime_minutes(self, movie):
         return f"{movie.runtime} minutes"
     
+    def validate(self, data):
+        ALAKI_YEAR = 1945
+        if data['year']==ALAKI_YEAR:
+            raise serializers.ValidationError(f'The year {ALAKI_YEAR} was after WW2 and no movies released in {ALAKI_YEAR}!')
+        return data
+    
 
 class SerialSerializer(serializers.ModelSerializer):
     class Meta:
