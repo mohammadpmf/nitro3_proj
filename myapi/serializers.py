@@ -55,9 +55,14 @@ class SerialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Serial
         exclude = ['datetime_created', 'datetime_modified']
-        depth=1
 
     average_runtime_minutes = serializers.SerializerMethodField()
+    director = serializers.PrimaryKeyRelatedField(
+        queryset = Artist.objects.all()
+    )
+    director_info = ArtistSerializer(source='director', read_only=True)
+    genre = GenreMovieSerializer(many=True, read_only=True)
+    cast = ArtistSerializer(many=True, read_only=True)
 
     def get_average_runtime_minutes(self, serial):
         return f"{serial.average_runtime} minutes"
@@ -67,10 +72,15 @@ class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
         exclude = ['datetime_created', 'datetime_modified']
-        depth=1
 
     duration_seconds = serializers.SerializerMethodField()
     duration_minutes = serializers.SerializerMethodField()
+    main_singer = serializers.PrimaryKeyRelatedField(
+        queryset = Artist.objects.all()
+    )
+    main_singer_info = ArtistSerializer(source='main_singer', read_only=True)
+    genre = GenreMovieSerializer(many=True, read_only=True)
+    other_singers = ArtistSerializer(many=True, read_only=True)
 
     def get_duration_seconds(self, music):
         return f"{music.duration} seconds"
