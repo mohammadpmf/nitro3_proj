@@ -2,10 +2,27 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.views import APIView
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
 from .models import Movie, Serial, Music
+
+
+class MovieList(APIView):
+    def get(self, request):
+        movies_queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
+        serializer = MovieSerializer(movies_queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        MovieSerializer.Meta.depth=0
+        serializer = MovieSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        MovieSerializer.Meta.depth=1
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 @api_view(['GET', 'POST'])
 def movie_list(request):
@@ -20,6 +37,25 @@ def movie_list(request):
         serializer.save()
         MovieSerializer.Meta.depth=1
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class MovieDetail(APIView):
+    def get(self, request, pk):
+        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+        serializer = MovieSerializer(movie)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    def put(self, request, pk):
+        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+        MovieSerializer.Meta.depth=0
+        serializer = MovieSerializer(movie, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        MovieSerializer.Meta.depth=1
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    def delete(self, request, pk):
+        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+        movie.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
