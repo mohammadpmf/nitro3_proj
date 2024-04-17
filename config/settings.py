@@ -142,4 +142,11 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
+    # وقتی متد گت و پست رو اضافه کردم. پست کردن بهم ارور میداد تو بروزبل ای پی آی. سرچ کردم به خاطر این بود
+    # که لاگین بودم. یک راه این بود که لاگ اوت کنم و ارسال کنم که این طوری اوکی بود. روش دوم این بود که 
+    # این متغیر پایینی رو به دیکشنری اضافه کنیم که تو مد دیباگ مشکل نداشته باشه و با وجود لاگین
+    # بشه ارسال هم انجام داد که من اضافه کردم که باشه.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+    ]
 }
