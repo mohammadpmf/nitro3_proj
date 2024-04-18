@@ -10,8 +10,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
-from .filters import MovieFilter
-from .paginations import MoviePagination
+from .filters import MovieFilter, SerialFilter, MusicFilter
+from .paginations import MoviePagination, SerialPagination, MusicPagination
 
 from .models import Movie, Serial, Music
 
@@ -108,6 +108,11 @@ def movie_detail(request, pk):
 class SerialViewSet(ModelViewSet):
     serializer_class = SerialSerializer
     queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
+    filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
+    ordering_fields = ['begin_year', 'end_year', 'rating']
+    search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name']
+    pagination_class = SerialPagination
+    filterset_class = SerialFilter
 
 
 class SerialList(ListCreateAPIView):
@@ -137,6 +142,11 @@ def serial_detail(request, pk):
 class MusicViewSet(ModelViewSet):
     serializer_class = MusicSerializer
     queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
+    filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
+    ordering_fields = ['year']
+    search_fields = ['title', 'lyrics', 'main_singer__first_name', 'main_singer__last_name', 'main_singer__nick_name', 'other_singers__first_name', 'other_singers__last_name', 'other_singers__nick_name']
+    pagination_class = MusicPagination
+    filterset_class = MusicFilter
 
 
 class MusicList(ListCreateAPIView):
