@@ -16,9 +16,9 @@ class MovieViewSet(ModelViewSet):
     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
 
 
-# class MovieList(ListCreateAPIView):
-#     serializer_class = MovieSerializer
-#     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
+class MovieList(ListCreateAPIView):
+    serializer_class = MovieSerializer
+    queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
 
 
 # class MovieList(APIView):
@@ -93,6 +93,11 @@ def movie_detail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
+class SerialViewSet(ModelViewSet):
+    serializer_class = SerialSerializer
+    queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
+
+
 class SerialList(ListCreateAPIView):
     serializer_class = SerialSerializer
     queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
@@ -115,6 +120,11 @@ def serial_detail(request, pk):
     serial = get_object_or_404(Serial.objects.select_related('director'), pk=pk)
     serializer = SerialSerializer(serial)
     return Response(serializer.data)
+
+
+class MusicViewSet(ModelViewSet):
+    serializer_class = MusicSerializer
+    queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
 
 
 class MusicList(ListCreateAPIView):

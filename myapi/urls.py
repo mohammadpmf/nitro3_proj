@@ -6,6 +6,8 @@ from . import views
 
 router = DefaultRouter()
 router.register('movies', views.MovieViewSet, basename='movie')
+router.register('series', views.SerialViewSet, basename='serial')
+router.register('music', views.MusicViewSet, basename='music')
 
 
 urlpatterns = [
