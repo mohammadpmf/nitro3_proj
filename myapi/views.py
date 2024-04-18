@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
@@ -17,7 +18,8 @@ from .models import Movie, Serial, Music
 class MovieViewSet(ModelViewSet):
     serializer_class = MovieSerializer
     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    ordering_fields = ['year', 'rating', 'release_date']
     # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
     filterset_class = MovieFilter
 
