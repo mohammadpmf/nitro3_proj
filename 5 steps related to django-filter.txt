@@ -1,0 +1,6 @@
+1- pip install django-filter
+2- ezafe kardane string e 'django_filters' dar settings.py ghabl az rest_framework.
+3- ezafe kardane import e zir dar views.py
+from django_filters.rest_framework import DjangoFilterBackend
+4- tarife motaghayere filter_backends dar ModelViewSet i ke darim va dadan e filterhayii ke mikhaim dar daroone yek list.
+5- tarife motaghayere filterset_fields dar ModelViewSet i ke darim va dadan e field hayi ke mikhaim filter beshan.
