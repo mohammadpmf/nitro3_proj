@@ -11,6 +11,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
 from .filters import MovieFilter
+from .paginations import MoviePagination
 
 from .models import Movie, Serial, Music
 
@@ -21,6 +22,7 @@ class MovieViewSet(ModelViewSet):
     filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
     ordering_fields = ['year', 'rating', 'release_date']
     search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name']
+    pagination_class = MoviePagination
     # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
     filterset_class = MovieFilter
 
