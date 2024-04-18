@@ -87,11 +87,21 @@ def movie_detail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 
+class SerialList(ListCreateAPIView):
+    serializer_class = SerialSerializer
+    queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
+
+
 @api_view()
 def serial_list(request):
     series_queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
     serializer = SerialSerializer(series_queryset, many=True)
     return Response(serializer.data)
+
+
+class SerialDetail(RetrieveUpdateDestroyAPIView):
+    serializer_class = SerialSerializer
+    queryset = Serial.objects.select_related('director')
 
 
 @api_view()
@@ -101,11 +111,21 @@ def serial_detail(request, pk):
     return Response(serializer.data)
 
 
+class MusicList(ListCreateAPIView):
+    serializer_class = MusicSerializer
+    queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
+
+
 @api_view()
 def music_list(request):
     music_queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
     serializer = MusicSerializer(music_queryset, many=True)
     return Response(serializer.data)
+
+
+class MusicDetail(RetrieveUpdateDestroyAPIView):
+    serializer_class = MusicSerializer
+    queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
 
 
 @api_view()
