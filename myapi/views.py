@@ -4,15 +4,21 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.viewsets import ModelViewSet
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
 from .models import Movie, Serial, Music
 
 
-class MovieList(ListCreateAPIView):
+class MovieViewSet(ModelViewSet):
     serializer_class = MovieSerializer
     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
+
+
+# class MovieList(ListCreateAPIView):
+#     serializer_class = MovieSerializer
+#     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
 
 
 # class MovieList(APIView):
