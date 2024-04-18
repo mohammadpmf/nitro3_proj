@@ -9,6 +9,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
+from .filters import MovieFilter
+
 from .models import Movie, Serial, Music
 
 
@@ -16,14 +18,8 @@ class MovieViewSet(ModelViewSet):
     serializer_class = MovieSerializer
     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
-    # title    => in
-    # year     => range
-    # directo  => can be searched by name or other attributes?
-    # plot     => in
-    # rating   => range
-    # genre    => can be searched by name or other attributes?
-    # cast     => can be searched by name or other attributes?
+    # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
+    filterset_class = MovieFilter
 
 
 
