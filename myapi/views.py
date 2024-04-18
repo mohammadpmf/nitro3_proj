@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
 
@@ -45,23 +45,28 @@ def movie_list(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-class MovieDetail(APIView):
-    def get(self, request, pk):
-        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
-        serializer = MovieSerializer(movie)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    def put(self, request, pk):
-        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
-        MovieSerializer.Meta.depth=0
-        serializer = MovieSerializer(movie, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        MovieSerializer.Meta.depth=1
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    def delete(self, request, pk):
-        movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
-        movie.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+class MovieDetail(RetrieveUpdateDestroyAPIView):
+    serializer_class = MovieSerializer
+    queryset = Movie.objects.all().select_related('director')
+
+
+# class MovieDetail(APIView):
+#     def get(self, request, pk):
+#         movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+#         serializer = MovieSerializer(movie)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#     def put(self, request, pk):
+#         movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+#         MovieSerializer.Meta.depth=0
+#         serializer = MovieSerializer(movie, data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#         MovieSerializer.Meta.depth=1
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#     def delete(self, request, pk):
+#         movie = get_object_or_404(Movie.objects.select_related('director'), pk=pk)
+#         movie.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
