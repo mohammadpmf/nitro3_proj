@@ -1,0 +1,11 @@
+zamane pish farze access token 5 daghighe hast.
+too settings.py too dictionary SIMPLE_JWT taghiresh midim ke baraye amoozesh aziat nakone.
+az url e http://127.0.0.1:8000/auth/jwt/create username va password e account e marboota
+ro mizanim ta behmoon in 2 ta token ro bedeh.
+az access token baraye darkhast haamoon mitoonim estefade konim ta vaghti ke monghazi beshe.
+har vaght monghazi shod, be jaye vared kardan e username va password, refresh token ro vared
+mikonim ta ye access token jadid behemoon bede.
+khode refresh token ham pish farz 1 rooz etebar dareh. bad az oon baraye
+gereftane jadid, bayad dobare username password bazanim va begirim.
+nahve gereftane access token az rooye refresh token ine ke be url e
+http://127.0.0.1:8000/auth/jwt/refresh berim. refresh token ro vared konim va access ro behemoon mide.
