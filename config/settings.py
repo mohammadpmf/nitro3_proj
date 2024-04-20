@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # third party apps
     'django_filters',
     'rest_framework',
+    'djoser',
     'debug_toolbar',
 
     # my apps
@@ -149,5 +150,10 @@ REST_FRAMEWORK = {
     # بشه ارسال هم انجام داد که من اضافه کردم که باشه.
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-    ]
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT', ),
 }

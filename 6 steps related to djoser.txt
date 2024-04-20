@@ -1,0 +1,15 @@
+1- pip install djoser
+2- ezafe kardane string e 'djoser' ba'd az 'django.contrib.auth' va 'rest_framework'. deghat konam tartibesh moheme.
+3- ezafe kardane khate zir dar urls.py az config e proje:
+    path("auth/", include("djoser.urls")),
+4- pip install djangorestframework_simplejwt
+5- ezafe kardane khate zir dar list e DEFAULT_AUTHENTICATION_CLASSES az dictionary e REST_FRAMEWORK ke dakhele settings.py tarif kardim.
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+6- tarif e motaghayer e dictionary e SIMPLE_JWT ba in maghadir:
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT', ),
+}
+7- ezafe kardane khate zir dar urls.py az config e proje:
+    path("auth/", include("djoser.urls.jwt")),
+8- vared shodan be url e http://127.0.0.1:8000/auth/users/ (ya age url chize dg e bood hamoon ke akharesh /auth/users ro ezafe mikonim.)
+age login nabashim, error 401 bayad bedeh ke yani dorost dare kar mikoneh.
