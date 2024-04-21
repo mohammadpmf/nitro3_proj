@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Artist, GenreMovie, GenreMusic, Movie, Music, Serial
+from .models import Artist, GenreMovie, GenreMusic, Movie, Music, Serial, Staff
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -92,6 +92,10 @@ class MusicSerializer(serializers.ModelSerializer):
         return f"{m:02}:{s:02}"
     
 
+class StaffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Staff
+        fields = ['user', 'phone_number']
 
 
 # class ArtistSerializer(serializers.Serializer):

@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
@@ -8,12 +8,12 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter, SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
-from .serializers import MovieSerializer, SerialSerializer, MusicSerializer
+from .serializers import MovieSerializer, SerialSerializer, MusicSerializer, StaffSerializer
 
 from .filters import MovieFilter, SerialFilter, MusicFilter
 from .paginations import MoviePagination, SerialPagination, MusicPagination
 
-from .models import Movie, Serial, Music
+from .models import Movie, Serial, Music, Staff
 
 
 class MovieViewSet(ModelViewSet):
@@ -147,6 +147,24 @@ class MusicViewSet(ModelViewSet):
     search_fields = ['title', 'lyrics', 'main_singer__first_name', 'main_singer__last_name', 'main_singer__nick_name', 'other_singers__first_name', 'other_singers__last_name', 'other_singers__nick_name']
     pagination_class = MusicPagination
     filterset_class = MusicFilter
+
+
+class StaffViewSet(ModelViewSet):
+    serializer_class = StaffSerializer
+    queryset = Staff.objects.all()
+
+    @action(detail=False) # don't forget to import action from rest_framework.decorators
+    def test_mohammad(self, request):
+        # the url is http://127.0.0.1:8000/staff/test_mohammad/
+        return Response("This is a new url made by action for testing.")
+
+    @action(detail=False)
+    def me(self, request):
+        # the url is http://127.0.0.1:8000/staff/me/
+        user_id = request.user.id
+        staff = Staff.objects.get(user_id=user_id)
+        serializer = StaffSerializer(staff)
+        return Response(serializer.data)
 
 
 class MusicList(ListCreateAPIView):
