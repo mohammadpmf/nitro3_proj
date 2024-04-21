@@ -25,7 +25,7 @@ class MovieViewSet(ModelViewSet):
     pagination_class = MoviePagination
     # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
     filterset_class = MovieFilter
-    permission_classes = [IsAdminOrReadOnly]
+    # permission_classes = [IsAdminOrReadOnly] # after finishing tokens, uncomment this to complete it.
 
 
 
