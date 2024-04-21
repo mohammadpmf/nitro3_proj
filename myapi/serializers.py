@@ -96,6 +96,7 @@ class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Staff
         fields = ['user', 'phone_number']
+        read_only_fields = ['user']
 
 
 # class ArtistSerializer(serializers.Serializer):

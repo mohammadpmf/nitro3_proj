@@ -6,14 +6,14 @@ from rest_framework.views import APIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import MovieSerializer, SerialSerializer, MusicSerializer, StaffSerializer
-
 from .filters import MovieFilter, SerialFilter, MusicFilter
 from .paginations import MoviePagination, SerialPagination, MusicPagination
-
 from .models import Movie, Serial, Music, Staff
+from .permissions import IsAdminOrReadOnly
 
 
 class MovieViewSet(ModelViewSet):
@@ -25,6 +25,7 @@ class MovieViewSet(ModelViewSet):
     pagination_class = MoviePagination
     # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
     filterset_class = MovieFilter
+    permission_classes = [IsAdminOrReadOnly]
 
 
 
@@ -152,19 +153,21 @@ class MusicViewSet(ModelViewSet):
 class StaffViewSet(ModelViewSet):
     serializer_class = StaffSerializer
     queryset = Staff.objects.all()
+    permission_classes = [IsAdminUser]
 
-    @action(detail=False) # don't forget to import action from rest_framework.decorators
-    def test_mohammad(self, request):
-        # the url is http://127.0.0.1:8000/staff/test_mohammad/
-        return Response("This is a new url made by action for testing.")
-
-    @action(detail=False)
+    @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated]) # don't forget to import action from rest_framework.decorators
     def me(self, request):
         # the url is http://127.0.0.1:8000/staff/me/
         user_id = request.user.id
         staff = Staff.objects.get(user_id=user_id)
-        serializer = StaffSerializer(staff)
-        return Response(serializer.data)
+        if request.method=='GET':
+            serializer = StaffSerializer(staff)
+            return Response(serializer.data)
+        elif request.method=='PUT':
+            serializer = StaffSerializer(staff, data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
 
 
 class MusicList(ListCreateAPIView):
