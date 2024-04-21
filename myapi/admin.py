@@ -9,4 +9,11 @@ admin.site.register(models.Movie)
 admin.site.register(models.Serial)
 admin.site.register(models.Music)
 admin.site.register(models.Image)
-admin.site.register(models.Staff)
+
+
+class StaffAdmin(admin.ModelAdmin):
+    list_display = ['user', 'phone_number', 'access_level']
+    list_display_links = ['user', 'phone_number', 'access_level']
+
+
+admin.site.register(models.Staff, StaffAdmin)

@@ -95,8 +95,8 @@ class MusicSerializer(serializers.ModelSerializer):
 class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Staff
-        fields = ['user', 'phone_number']
-        read_only_fields = ['user']
+        fields = ['user', 'phone_number', 'access_level']
+        read_only_fields = ['user', 'access_level']
 
 
 # class ArtistSerializer(serializers.Serializer):

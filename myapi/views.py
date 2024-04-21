@@ -159,7 +159,10 @@ class StaffViewSet(ModelViewSet):
     def me(self, request):
         # the url is http://127.0.0.1:8000/staff/me/
         user_id = request.user.id
+        print(user_id)
         staff = Staff.objects.get(user_id=user_id)
+        print(request.GET)
+        print('tamam')
         if request.method=='GET':
             serializer = StaffSerializer(staff)
             return Response(serializer.data)
