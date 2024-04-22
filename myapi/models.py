@@ -125,18 +125,8 @@ class Image(models.Model):
 
 
 class Staff(models.Model):
-    STATUS_SUPER_USER = 1
-    STATUS_MODERATOR = 2
-    STATUS_PUBLIC_USER = 3
-    ACCESS_LEVELS = (
-        (STATUS_SUPER_USER, 'Super User'),
-        (STATUS_MODERATOR, 'Create, Update an Retrieve'),
-        (STATUS_PUBLIC_USER, 'just Retrieve'),
-    )
-
     user = models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     phone_number = models.CharField(max_length=256, blank=True)
-    access_level = models.IntegerField(choices=ACCESS_LEVELS, default=STATUS_PUBLIC_USER)
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"

@@ -12,8 +12,8 @@ admin.site.register(models.Image)
 
 
 class StaffAdmin(admin.ModelAdmin):
-    list_display = ['user', 'phone_number', 'access_level']
-    list_display_links = ['user', 'phone_number', 'access_level']
+    list_display = ['user', 'phone_number']
+    list_display_links = ['user', 'phone_number']
 
 
 admin.site.register(models.Staff, StaffAdmin)

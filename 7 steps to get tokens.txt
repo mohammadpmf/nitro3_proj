@@ -9,3 +9,13 @@ khode refresh token ham pish farz 1 rooz etebar dareh. bad az oon baraye
 gereftane jadid, bayad dobare username password bazanim va begirim.
 nahve gereftane access token az rooye refresh token ine ke be url e
 http://127.0.0.1:8000/auth/jwt/refresh berim. refresh token ro vared konim va access ro behemoon mide.
+baraye in ke khodemoon ham test konim, mishe extension e Modheader ro rooye google chrome nasb kard.
+az roo ghesmate + bala ke dare, Request headers ro entekhab mikonim va ye doone ya age doos dashtim
+chand ta mitoonim ezafe konim. too ghesmate name Authorization ro benevisim va too ghesmate value
+JWT token i ke gereftim ro benevisim. yani JWT badesh ye space va ba'd token e khodemoon.
+kari ke mikone tooye darkhasthamoon ke az tarighe browser darim mifrestim, token ro be header ezafe
+mikone va in tori dg too browswer ham moshkel nadarim va too har safhe ke mirim azamoon username
+va password nemikhad.
+*** faghat nokte mohem yademoon bashe ke roo browser hast. vaghti karemoon tamoom shod tik e checkbox ro 
+bardarim. vagarna baraye har safhe i ke baz mikonim in header ro mifreste va kheyli az safhat be dorosti
+load nemishan.
