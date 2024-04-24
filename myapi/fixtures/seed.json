@@ -1,0 +1,161 @@
+[
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 1,
+    "fields": {
+      "title": "comedy"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 2,
+    "fields": {
+      "title": "drama"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 3,
+    "fields": {
+      "title": "science fiction"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 4,
+    "fields": {
+      "title": "adventure"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 5,
+    "fields": {
+      "title": "animation"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 6,
+    "fields": {
+      "title": "action"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 7,
+    "fields": {
+      "title": "horror"
+    }
+  },
+  {
+    "model": "myapi.GenreMovie",
+    "pk": 8,
+    "fields": {
+      "title": "western"
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 1,
+    "fields": {
+      "title": "pop"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 2,
+    "fields": {
+      "title": "rap"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 3,
+    "fields": {
+      "title": "rock"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 4,
+    "fields": {
+      "title": "country"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 5,
+    "fields": {
+      "title": "r and b"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 6,
+    "fields": {
+      "title": "jazz"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 7,
+    "fields": {
+      "title": "heavy metal"
+    }
+  },
+  {
+    "model": "myapi.GenreMusic",
+    "pk": 8,
+    "fields": {
+      "title": "hip hop"
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Artist",
+    "pk": 1,
+    "fields": {
+        "first_name": "Jon",
+        "last_name": "Favreau", 
+        "nick_name": "",
+        "birth_date": "1966-10-19"
+    }
+  },
+  {
+    "model": "myapi.Artist",
+    "pk": 2,
+    "fields": {
+        "first_name": "James",
+        "last_name": "Cameron", 
+        "nick_name": "",
+        "birth_date": "1954-08-16"
+    }
+  },
+  {
+    "model": "myapi.Artist",
+    "pk": 3,
+    "fields": {
+        "first_name": "Christopher",
+        "last_name": "Nolan", 
+        "nick_name": "",
+        "birth_date": "1970-07-30"
+    }
+  }
+]

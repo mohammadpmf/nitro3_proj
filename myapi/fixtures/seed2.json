@@ -1,0 +1,16 @@
+[
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Iron Man",
+      "year": 2008,
+      "runtime": 117,
+      "status": "released",
+      "director_id": 1,
+      "country": "USA",
+      "release_date": "2008-03-05",
+      "datetime_created": "2000-01-01",
+      "datetime_modified": "2000-01-01"
+    }
+  }
+]
