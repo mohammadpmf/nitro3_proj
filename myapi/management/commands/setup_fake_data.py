@@ -9,7 +9,7 @@ from myapi.factories import GenreMovieFactory, GenreMusicFactory, ArtistFactory,
 
 faker = Faker()
 
-list_of_models = [GenreMovie, GenreMusic, Artist, Movie, Serial, Music, Image]
+list_of_models = [GenreMovie, GenreMusic, Movie, Serial, Music, Artist, Image]
 
 NUMBER_OF_GENREMOVIE = 20
 NUMBER_OF_GENREMUSIC = 25
