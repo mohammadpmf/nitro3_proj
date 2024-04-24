@@ -5,14 +5,14 @@ from django.conf import settings
 
 
 class GenreMovie(models.Model):
-    title = models.CharField(max_length=64)
+    title = models.CharField(max_length=64, unique=True)
 
     def __str__(self):
         return self.title
 
 
 class GenreMusic(models.Model):
-    title = models.CharField(max_length=64)
+    title = models.CharField(max_length=64, unique=True)
 
     def __str__(self):
         return self.title
@@ -28,7 +28,9 @@ class Artist(models.Model):
         if self.nick_name != "":
             return self.nick_name
         return f"{self.first_name} {self.last_name}"
-
+  
+    class Meta:
+        unique_together = ('first_name', 'last_name', 'nick_name')
 
 class Movie(models.Model):
     STATUS_IN_DEVELOPMENT = 'develope'  # 8 characters
@@ -142,84 +144,3 @@ class Staff(models.Model):
     @property
     def username(self):
         return self.user.username
-
-##################################################################################### v1 which is canceled #####################################################################################
-# class Tag(models.Model):
-#     name = models.CharField(max_length=64)
-
-# class Photo(models.Model):
-#     IMAGE_FORMAT_CHOICES = (
-#         ('jpg', 'jpg'),
-#         ('jpeg', 'jpeg'),
-#         ('gif', 'gif'),
-#         ('ico', 'ico'),
-#         ('bmp', 'bmp'),
-#         ('png', 'png'),
-#         ('tiff', 'tiff'),
-#         ('webp', 'webp'),
-#         ('svg', 'svg'),
-#         ('tga', 'tga'),
-#         ('wbmp', 'wbmp'),
-#         ('other', 'other'),
-#     )
-
-#     title = models.CharField(max_length=64)
-#     image = models.ImageField(upload_to='photos/')
-#     views = models.PositiveIntegerField(default=0)
-#     datetime_created = models.DateTimeField(auto_now_add=True)
-#     dimension = models.CharField(max_length=64)
-#     width = models.PositiveIntegerField()
-#     height = models.PositiveIntegerField()
-#     image_format = models.CharField(max_length=8, choices=IMAGE_FORMAT_CHOICES)
-#     tags = models.ManyToManyField("app.Model")
-
-
-# class Video(models.Model):
-#     VIDEO_FORMAT_CHOICES = (
-#         ('mp4', 'mp4'),
-#         ('mkv', 'mkv'),
-#         ('flv', 'flv'),
-#         ('mov', 'mov'),
-#         ('avi', 'avi'),
-#         ('mpg', 'mpg'),
-#         ('ogv', 'ogv'),
-#         ('webm', 'webm'),
-#         ('wmv', 'wmv'),
-#         ('3gp', '3gp'),
-#         ('other', 'other'),
-#     )
-
-#     title = models.CharField(max_length=64)
-#     image = models.ImageField(upload_to='photos/')
-#     video= models.FileField(upload_to='videos/')
-#     views = models.PositiveIntegerField(default=0)
-#     datetime_created = models.DateTimeField(auto_now_add=True)
-#     resolution = models.CharField(max_length=64)
-#     width = models.PositiveIntegerField()
-#     height = models.PositiveIntegerField()
-#     video_format = models.CharField(max_length=8, choices=VIDEO_FORMAT_CHOICES)
-#     duration = models.TimeField()
-#     tags = models.ManyToManyField("app.Model")
-#     # frame_rate = models.PositiveIntegerField()
-
-
-# class Music(models.Model):
-#     MUSIC_FORMAT_CHOICES = (
-#         ('mp3', 'mp3'),
-#         ('wav', 'wav'),
-#         ('wma', 'wma'),
-#         ('ogg', 'ogg'),
-#         ('m4a', 'm4a'),
-#         ('aac', 'aac'),
-#         ('other', 'other'),
-#     )
-
-#     title = models.CharField(max_length=64)
-#     image = models.ImageField(upload_to='photos/')
-#     file= models.FileField(upload_to='music/')
-#     views = models.PositiveIntegerField(default=0)
-#     datetime_created = models.DateTimeField(auto_now_add=True)
-#     music_format = models.CharField(max_length=8, choices=MUSIC_FORMAT_CHOICES)
-#     duration = models.TimeField()
-#     tags = models.ManyToManyField("app.Model")
-#     bit_rate = models.PositiveIntegerField()
