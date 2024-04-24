@@ -5,14 +5,14 @@ from django.conf import settings
 
 
 class GenreMovie(models.Model):
-    title = models.CharField(max_length=64, unique=True)
+    title = models.CharField(max_length=64)
 
     def __str__(self):
         return self.title
 
 
 class GenreMusic(models.Model):
-    title = models.CharField(max_length=64, unique=True)
+    title = models.CharField(max_length=64)
 
     def __str__(self):
         return self.title
@@ -28,9 +28,7 @@ class Artist(models.Model):
         if self.nick_name != "":
             return self.nick_name
         return f"{self.first_name} {self.last_name}"
-  
-    class Meta:
-        unique_together = ('first_name', 'last_name', 'nick_name')
+
 
 class Movie(models.Model):
     STATUS_IN_DEVELOPMENT = 'develope'  # 8 characters
