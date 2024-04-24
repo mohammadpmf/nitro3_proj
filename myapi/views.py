@@ -21,7 +21,7 @@ class MovieViewSet(ModelViewSet):
     queryset = Movie.objects.all().select_related('director').prefetch_related('genre', 'cast')
     filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
     ordering_fields = ['year', 'rating', 'release_date']
-    search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name']
+    search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name', 'year']
     pagination_class = MoviePagination
     # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
     filterset_class = MovieFilter
@@ -111,7 +111,7 @@ class SerialViewSet(ModelViewSet):
     queryset = Serial.objects.all().select_related('director').prefetch_related('genre', 'cast')
     filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
     ordering_fields = ['begin_year', 'end_year', 'rating']
-    search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name']
+    search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name', 'begin_year', 'end_year']
     pagination_class = SerialPagination
     filterset_class = SerialFilter
     permission_classes = [IsAdminOrReadOnly]
@@ -146,7 +146,7 @@ class MusicViewSet(ModelViewSet):
     queryset = Music.objects.all().select_related('main_singer').prefetch_related('genre', 'other_singers')
     filter_backends = [SearchFilter, DjangoFilterBackend, OrderingFilter]
     ordering_fields = ['year']
-    search_fields = ['title', 'lyrics', 'main_singer__first_name', 'main_singer__last_name', 'main_singer__nick_name', 'other_singers__first_name', 'other_singers__last_name', 'other_singers__nick_name']
+    search_fields = ['title', 'lyrics', 'main_singer__first_name', 'main_singer__last_name', 'main_singer__nick_name', 'other_singers__first_name', 'other_singers__last_name', 'other_singers__nick_name', 'year']
     pagination_class = MusicPagination
     filterset_class = MusicFilter
     permission_classes = [IsAdminOrReadOnly]
