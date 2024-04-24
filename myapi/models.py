@@ -135,6 +135,14 @@ class Staff(models.Model):
     def full_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
+    @property
+    def email(self):
+        return self.user.email
+
+    @property
+    def username(self):
+        return self.user.username
+
 ##################################################################################### v1 which is canceled #####################################################################################
 # class Tag(models.Model):
 #     name = models.CharField(max_length=64)
