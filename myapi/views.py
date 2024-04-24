@@ -25,7 +25,7 @@ class MovieViewSet(ModelViewSet):
     pagination_class = MoviePagination
     # filterset_fields = ['year', 'status', 'director', 'country', 'genre', 'cast']
     filterset_class = MovieFilter
-    # permission_classes = [IsAdminOrReadOnly] # after finishing tokens, uncomment this to complete it.
+    permission_classes = [IsAdminOrReadOnly]
 
 
 
@@ -114,6 +114,7 @@ class SerialViewSet(ModelViewSet):
     search_fields = ['title', 'director__first_name', 'director__last_name', 'director__nick_name', 'cast__first_name', 'cast__last_name', 'cast__nick_name']
     pagination_class = SerialPagination
     filterset_class = SerialFilter
+    permission_classes = [IsAdminOrReadOnly]
 
 
 class SerialList(ListCreateAPIView):
@@ -148,6 +149,7 @@ class MusicViewSet(ModelViewSet):
     search_fields = ['title', 'lyrics', 'main_singer__first_name', 'main_singer__last_name', 'main_singer__nick_name', 'other_singers__first_name', 'other_singers__last_name', 'other_singers__nick_name']
     pagination_class = MusicPagination
     filterset_class = MusicFilter
+    permission_classes = [IsAdminOrReadOnly]
 
 
 class StaffViewSet(ModelViewSet):
@@ -159,10 +161,7 @@ class StaffViewSet(ModelViewSet):
     def me(self, request):
         # the url is http://127.0.0.1:8000/staff/me/
         user_id = request.user.id
-        print(user_id)
         staff = Staff.objects.get(user_id=user_id)
-        print(request.GET)
-        print('tamam')
         if request.method=='GET':
             serializer = StaffSerializer(staff)
             return Response(serializer.data)
