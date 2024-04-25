@@ -4,13 +4,932 @@
     "fields": {
       "title": "Iron Man",
       "year": 2008,
-      "runtime": 117,
+      "runtime": 126,
       "status": "released",
       "director_id": 1,
-      "country": "USA",
-      "release_date": "2008-03-05",
-      "datetime_created": "2000-01-01",
-      "datetime_modified": "2000-01-01"
+      "country": "United States",
+      "release_date": "2008-04-14",
+      "genre": [3, 6],
+      "cast": [1, 109, 129, 208, 118, 209, 210]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Iron Man 2",
+      "year": 2010,
+      "runtime": 125,
+      "status": "released",
+      "director_id": 1,
+      "country": "United States",
+      "release_date": "2010-05-07",
+      "genre": [3, 6],
+      "cast": [1, 109, 119, 129, 209, 210, 113, 211, 212]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Iron Man 3",
+      "year": 2013,
+      "runtime": 131,
+      "status": "released",
+      "director_id": 4,
+      "country": "United States",
+      "release_date": "2013-05-03",
+      "genre": [3, 6],
+      "cast": [1, 109, 119, 129, 209, 213, 214, 215]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Captain America: The First Avenger",
+      "year": 2011,
+      "runtime": 124,
+      "status": "released",
+      "director_id": 5,
+      "country": "United States",
+      "release_date": "2011-07-22",
+      "genre": [2, 3, 6],
+      "cast": [111, 217, 218, 151, 219, 209]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Captain America: The Winter Soldier",
+      "year": 2014,
+      "runtime": 136,
+      "status": "released",
+      "director_id": 6,
+      "country": "United States",
+      "release_date": "2014-04-04",
+      "genre": [3, 6],
+      "cast": [111, 117, 151, 152, 209, 113, 150, 221]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Captain America: Civil War",
+      "year": 2016,
+      "runtime": 147,
+      "status": "released",
+      "director_id": 6,
+      "country": "United States",
+      "release_date": "2016-05-06",
+      "genre": [3, 6],
+      "cast": [111, 109, 117, 151, 115, 116, 124, 125, 119, 152, 123, 118, 209, 113, 221, 220]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Marvel's The Avengers",
+      "year": 2012,
+      "runtime": 143,
+      "status": "released",
+      "director_id": 7,
+      "country": "United States",
+      "release_date": "2012-05-04",
+      "genre": [1, 3, 6],
+      "cast": [109, 111, 112, 113, 114, 115, 120, 150, 153, 209]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Avengers: Age of Ultron",
+      "year": 2015,
+      "runtime": 141,
+      "status": "released",
+      "director_id": 7,
+      "country": "United States",
+      "release_date": "2015-05-01",
+      "genre": [1, 3, 6],
+      "cast": [26, 109, 111, 112, 113, 114, 115, 116, 150, 153, 119, 118, 209]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Avengers: Infinity War",
+      "year": 2018,
+      "runtime": 149,
+      "status": "released",
+      "director_id": 6,
+      "country": "United States",
+      "release_date": "2018-04-27",
+      "genre": [1, 3, 6],
+      "cast": [1, 109, 110, 111, 112, 113, 114, 115, 116, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 150, 153, 192, 193, 195, 199, 209]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "runtime": 181,
+      "status": "released",
+      "director_id": 6,
+      "country": "United States",
+      "release_date": "2019-04-26",
+      "genre": [1, 3, 6],
+      "cast": [1, 109, 110, 111, 112, 113, 114, 115, 116, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 150, 153, 192, 193, 195, 199, 209]
+    }
+  },
+
+  
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Ant-Man",
+      "year": 2015,
+      "runtime": 117,
+      "status": "released",
+      "director_id": 8,
+      "country": "United States",
+      "release_date": "2015-07-17",
+      "genre": [1, 3, 6],
+      "cast": [125, 128, 141, 209, 222, 223, 224, 225, 229]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Ant-Man and the Wasp",
+      "year": 2018,
+      "runtime": 118,
+      "status": "released",
+      "director_id": 8,
+      "country": "United States",
+      "release_date": "2018-07-06",
+      "genre": [1, 3, 6],
+      "cast": [125, 128, 209, 222, 225, 226, 227, 229]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Ant-Man and the Wasp: Quantumania",
+      "year": 2023,
+      "runtime": 124,
+      "status": "released",
+      "director_id": 8,
+      "country": "United States",
+      "release_date": "2023-02-17",
+      "genre": [1, 3, 6],
+      "cast": [125, 128, 222, 223, 226, 228]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Guardians of the Galaxy",
+      "year": 2014,
+      "runtime": 122,
+      "status": "released",
+      "director_id": 9,
+      "country": "United States",
+      "release_date": "2014-08-01",
+      "genre": [1, 2, 3, 6],
+      "cast": [110, 122, 131, 192, 193, 194, 195, 196, 209, 230]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "year": 2017,
+      "runtime": 136,
+      "status": "released",
+      "director_id": 9,
+      "country": "United States",
+      "release_date": "2017-05-05",
+      "genre": [1, 2, 3, 6],
+      "cast": [110, 122, 192, 193, 194, 195, 196, 197, 198, 199, 209, 230]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Guardians of the Galaxy Vol. 3",
+      "year": 2023,
+      "runtime": 150,
+      "status": "released",
+      "director_id": 9,
+      "country": "United States",
+      "release_date": "2023-05-05",
+      "genre": [1, 2, 3, 6],
+      "cast": [110, 122, 192, 193, 194, 195, 199, 230, 231]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Doctor Strange",
+      "year": 2016,
+      "runtime": 115,
+      "status": "released",
+      "director_id": 10,
+      "country": "United States",
+      "release_date": "2016-11-04",
+      "genre": [2, 3, 4, 6],
+      "cast": [121, 127, 209, 232, 233, 234, 235, 236]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "year": 2022,
+      "runtime": 126,
+      "status": "released",
+      "director_id": 11,
+      "country": "United States",
+      "release_date": "2022-05-06",
+      "genre": [3, 6, 7],
+      "cast": [121, 127, 116, 218, 232, 233, 235, 237]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Spider-Man: Far From Home",
+      "year": 2019,
+      "runtime": 129,
+      "status": "released",
+      "director_id": 12,
+      "country": "United States",
+      "release_date": "2019-07-02",
+      "genre": [3, 4, 6],
+      "cast": [1, 124, 146, 149, 150, 153, 238, 239]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Spider-Man: No Way Home",
+      "year": 2021,
+      "runtime": 148,
+      "status": "released",
+      "director_id": 12,
+      "country": "United States",
+      "release_date": "2021-12-17",
+      "genre": [3, 4, 6],
+      "cast": [1, 104, 121, 124, 127, 146, 147, 148, 149, 239]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Shang-Chi and the Legend of the Ten Rings",
+      "year": 2021,
+      "runtime": 132,
+      "status": "released",
+      "director_id": 13,
+      "country": "United States",
+      "release_date": "2021-09-03",
+      "genre": [3, 6, 9],
+      "cast": [127, 142, 143, 144, 145, 213]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Deadpool",
+      "year": 2016,
+      "runtime": 108,
+      "status": "released",
+      "director_id": 14,
+      "country": "United States",
+      "release_date": "2016-02-12",
+      "genre": [1, 2, 3, 4, 6],
+      "cast": [160, 161, 162, 209]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Deadpool 2",
+      "year": 2018,
+      "runtime": 119,
+      "status": "released",
+      "director_id": 15,
+      "country": "United States",
+      "release_date": "2016-05-18",
+      "genre": [1, 2, 3, 4, 6],
+      "cast": [131, 160, 161, 162, 209]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Deadpool & Wolverine",
+      "year": 2024,
+      "runtime": 129,
+      "status": "post",
+      "director_id": 16,
+      "country": "United States",
+      "release_date": "2024-07-26",
+      "genre": [1, 2, 3, 4, 6],
+      "cast": [160, 161, 162, 240]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Jumanji",
+      "year": 1995,
+      "runtime": 104,
+      "status": "released",
+      "director_id": 5,
+      "country": "United States",
+      "release_date": "1995-12-15",
+      "genre": [2, 4, 5, 6, 7],
+      "cast": [132, 133, 134, 135]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Jumanji: Welcome to the Jungle",
+      "year": 2017,
+      "runtime": 119,
+      "status": "released",
+      "director_id": 17,
+      "country": "United States",
+      "release_date": "2017-12-20",
+      "genre": [1, 3, 4, 6],
+      "cast": [122, 136, 137, 138, 139, 140, 141]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Jumanji: The Next Level",
+      "year": 2019,
+      "runtime": 123,
+      "status": "released",
+      "director_id": 17,
+      "country": "United States",
+      "release_date": "2019-12-13",
+      "genre": [1, 3, 4, 6],
+      "cast": [122, 136, 137, 138, 139, 140, 142]
+    }
+  },
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Kung Fu Panda",
+      "year": 2008,
+      "runtime": 92,
+      "status": "released",
+      "director_id": 18,
+      "country": "United States",
+      "release_date": "2008-06-06",
+      "genre": [1, 4, 5, 6, 9],
+      "cast": [137, 241, 242, 243, 245]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Kung Fu Panda 2",
+      "year": 2011,
+      "runtime": 90,
+      "status": "released",
+      "director_id": 19,
+      "country": "United States",
+      "release_date": "2011-05-26",
+      "genre": [1, 4, 5, 6, 9],
+      "cast": [137, 241, 242, 243]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Kung Fu Panda 3",
+      "year": 2016,
+      "runtime": 95,
+      "status": "released",
+      "director_id": 19,
+      "country": "United States",
+      "release_date": "2016-01-29",
+      "genre": [1, 4, 5, 6, 9],
+      "cast": [137, 184, 241, 242, 243, 244]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Kung Fu Panda 4",
+      "year": 2024,
+      "runtime": 94,
+      "status": "released",
+      "director_id": 20,
+      "country": "United States",
+      "release_date": "2024-03-08",
+      "genre": [1, 4, 5, 6, 9],
+      "cast": [137, 142, 184, 242, 245]
+    }
+  },
+
+
+
+
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Venom",
+      "year": 2018,
+      "runtime": 113,
+      "status": "released",
+      "director_id": 25,
+      "country": "United States",
+      "release_date": "2018-10-01",
+      "genre": [1, 3, 6, 7],
+      "cast": [104, 246]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Venom: Let There Be Carnage",
+      "year": 2021,
+      "runtime": 97,
+      "status": "released",
+      "director_id": 26,
+      "country": "United States",
+      "release_date": "2021-10-01",
+      "genre": [1, 3, 6, 7],
+      "cast": [104, 246]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Titanic",
+      "year": 1997,
+      "runtime": 195,
+      "status": "released",
+      "director_id": 2,
+      "country": "United States",
+      "release_date": "1997-11-01",
+      "genre": [2, 4, 10],
+      "cast": [101]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Inception",
+      "year": 2010,
+      "runtime": 148,
+      "status": "released",
+      "director_id": 3,
+      "plot": "Cobb and Arthur are \"extractors\" who perform corporate espionage using experimental dream-sharing technology to infiltrate their targets' subconscious and extract information. Their latest target, Saito, is impressed with Cobb's ability to layer multiple dreams within each other. He offers to hire Cobb for the ostensibly impossible job of implanting an idea into a person's subconscious; performing \"inception\" on Robert Fischer, the son of Saito's competitor Maurice Fischer, with the idea to dissolve his father's company. In return, Saito promises to clear Cobb's criminal status, allowing him to return home to his children.",
+      "country": "United States",
+      "release_date": "2010-07-16",
+      "genre": [2, 3, 4, 6, 10],
+      "cast": [101, 102, 103, 104, 105, 106, 107, 108]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "Batman Begins",
+      "year": 2005,
+      "runtime": 140,
+      "status": "released",
+      "director_id": 3,
+      "country": "United States",
+      "release_date": "2005-06-15",
+      "genre": [4, 6, 7],
+      "cast": [102, 106, 107, 154, 157, 158, 159]
+    }
+  },
+  {
+    "model": "myapi.Movie",
+    "fields": {
+      "title": "فسیل",
+      "year": 2021,
+      "runtime": 108,
+      "status": "released",
+      "director_id": 27,
+      "country": "Iran",
+      "release_date": "2021-07-14",
+      "genre": [1, 2],
+      "cast": [200, 201, 202, 203, 204, 205, 206, 207]
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "model": "myapi.Serial",
+    "fields": {
+      "title": "Money Heist",
+      "number_of_seasons": 5,
+      "number_of_episodes": 48,
+      "begin_year": 2017,
+      "end_year": 2021,
+      "average_runtime": 46,
+      "director_id": 21,
+      "country": "Spain",
+      "plot": "To make the plot more realistic, the producers requested and received advice from the national police, civil guard, and the Spanish Ministry of Interior.[45][46] The robbers' banknotes were printed with permission of the Bank of Spain and had an increased size as an anti-counterfeit measure.[45] The greater financial backing of Netflix for part 3 allowed for the build of over 50 sets across five basic filming locations world-wide.[47] Preparing a remote and uninhabited island in Panama to represent a robber hide-out proved difficult, as it needed to be cleaned, secured and built on, and involved hours-long travelling with material transportation.[43] The real Bank of Spain was unavailable for visiting and filming for security reasons, so the producers recreated the Bank on a two-level stage by their own imagining, taking inspiration from Spanish architecture of the Francisco Franco era.[43] Publicly available information was used to make the Bank's main hall set similar to the real location. The other interior sets were inspired by different periods and artificially aged to accentuate the building's history.[47] Bronze and granite sculptures and motifs from the Valle de los Caídos were recreated for the interior,[43] and over 50 paintings were painted for the Bank to emulate the Ateneo de Madrid",
+      "rating": 8.9,
+      "genre": [2, 4, 6],
+      "cast": [163, 164, 165, 166, 167, 168, 169, 170]
+    }
+  },
+  {
+    "model": "myapi.Serial",
+    "fields": {
+      "title": "Prison Break",
+      "number_of_seasons": 5,
+      "number_of_episodes": 90,
+      "begin_year": 2005,
+      "end_year": 2017,
+      "average_runtime": 44,
+      "director_id": 22,
+      "country": "United States",
+      "plot": "The series was originally turned down by Fox in 2003, which was concerned about the long-term prospects of such a series. Following the popularity of serialized prime time television series Lost and 24, Fox decided to back production in 2004. The first season received mostly positive reviews from critics with universal acclaim from audiences.[2] Furthermore, it performed exceptionally in the ratings and was originally planned for a 13-episode run, but was extended to include an extra nine episodes due to its popularity. The subsequent seasons continued to receive strong ratings, however some critics claimed the show had overstayed its welcome.[3] Prison Break was nominated for several industry awards, including the 2005 Golden Globe Award for Best Television Series Drama and the 2006 People's Choice Award for Favorite New TV Drama, which it won. In the United States, all five seasons have been released on DVD and released on Blu-ray internationally.",
+      "rating": 8.6,
+      "genre": [4, 6],
+      "cast": [171, 172, 173, 174, 175, 176]
+    }
+  },
+  {
+    "model": "myapi.Serial",
+    "fields": {
+      "title": "Lost",
+      "number_of_seasons": 6,
+      "number_of_episodes": 121,
+      "begin_year": 2004,
+      "end_year": 2010,
+      "average_runtime": 42,
+      "director_id": 23,
+      "country": "United States",
+      "plot": "Some people fall in a land :D And they are lost. blah blah blah...",
+      "rating": 8.3,
+      "genre": [1, 2, 3, 4, 6, 7],
+      "cast": [128, 177, 178, 179, 180, 181, 182, 183]
+    }
+  },
+  {
+    "model": "myapi.Serial",
+    "fields": {
+      "title": "Breaking bad",
+      "number_of_seasons": 5,
+      "number_of_episodes": 62,
+      "begin_year": 2008,
+      "end_year": 2013,
+      "average_runtime": 50,
+      "director_id": 24,
+      "country": "United States",
+      "rating": 8.8,
+      "genre": [2, 6],
+      "cast": [184, 185, 186, 187, 188, 189, 190, 191]
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "بی معرفت",
+      "year": 2024,
+      "duration": 170,
+      "main_singer_id": 625,
+      "lyrics": "",
+      "genre": [1, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "هنوز دوستم داره",
+      "year": 2023,
+      "duration": 243,
+      "main_singer_id": 625,
+      "lyrics": "",
+      "genre": [1, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "قرص قمر",
+      "year": 2020,
+      "duration": 195,
+      "main_singer_id": 625,
+      "lyrics": "",
+      "genre": [1, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "قرص قمر ۲",
+      "year": 2018,
+      "duration": 205,
+      "main_singer_id": 625,
+      "lyrics": "",
+      "genre": [1],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "با من نماندی",
+      "year": 2021,
+      "duration": 171,
+      "main_singer_id": 624,
+      "lyrics": "",
+      "genre": [1],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "دهه شصتی",
+      "year": 2020,
+      "duration": 159,
+      "main_singer_id": 624,
+      "lyrics": "دهه شصتی دیوانه یک بار عاشق، خواست تا خرج کند، آن کپن باطله را...",
+      "genre": [1, 5],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "شوخیه مگه",
+      "year": 2016,
+      "duration": 137,
+      "main_singer_id": 624,
+      "lyrics": "",
+      "genre": [1],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "بخند",
+      "year": 2022,
+      "duration": 178,
+      "main_singer_id": 624,
+      "lyrics": "",
+      "genre": [1],
+      "other_singers": [626]
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "baby",
+      "year": 2011,
+      "duration": 207,
+      "main_singer_id": 623,
+      "lyrics": "",
+      "genre": [1, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "baby remix",
+      "year": 2012,
+      "duration": 241,
+      "main_singer_id": 623,
+      "lyrics": "",
+      "genre": [1, 2, 8],
+      "other_singers": [627]
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "Gungnam Style",
+      "year": 2009,
+      "duration": 235,
+      "main_singer_id": 622,
+      "lyrics": "",
+      "genre": [1, 2, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "Love the Way You Lie",
+      "year": 2011,
+      "duration": 257,
+      "main_singer_id": 616,
+      "lyrics": "",
+      "genre": [1, 2],
+      "other_singers": [628]
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "Love the Way You Lie",
+      "year": 2011,
+      "duration": 257,
+      "main_singer_id": 616,
+      "lyrics": "",
+      "genre": [1, 2],
+      "other_singers": [628]
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "Love the Way You Lie",
+      "year": 2011,
+      "duration": 257,
+      "main_singer_id": 616,
+      "lyrics": "",
+      "genre": [1, 2],
+      "other_singers": [628]
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "perfect",
+      "year": 2017,
+      "duration": 147,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [1, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "shape of you",
+      "year": 2017,
+      "duration": 197,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [1, 2],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "thinking out loud",
+      "year": 2014,
+      "duration": 207,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [5],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "Galway Girl",
+      "year": 2017,
+      "duration": 139,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [1, 2, 4, 8],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "bad habits",
+      "year": 2021,
+      "duration": 132,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [1, 3],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "shivers",
+      "year": 2021,
+      "duration": 177,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [1],
+      "other_singers": []
+    }
+  },
+  {
+    "model": "myapi.Music",
+    "fields": {
+      "title": "I See Fire",
+      "year": 2014,
+      "duration": 183,
+      "main_singer_id": 603,
+      "lyrics": "",
+      "genre": [1, 5],
+      "other_singers": []
     }
   }
 ]
