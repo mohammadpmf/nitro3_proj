@@ -1,0 +1,25 @@
+https://stackoverflow.com/questions/35760943/how-can-i-enable-cors-on-django-rest-framework
+https://github.com/adamchainz/django-cors-headers#configuration
+
+akhar sar az in 2 ja negah kardam va moshkel hal shod.
+tozih in ke flutter i ke too chrome khorooji mide, har bar rooye ye port e motafavet google chrome ro baz mikoneh.
+bayad bebinim portesh chie va tooye settings oon port ro behesh ejaze dastrasi bedim. * gozashtam error midad.
+be khatere hamin oon port ro dasti gozashtam. albatte mishod motaghayyer CORS_ALLOW_ALL_ORIGINS ro ham True
+gozasht. ama ba'd az in ke oon ro test kardam in ro didam va dg in yeki ro test nakardam. shayad ham age
+benevisim CORS_ALLOW_ALL_ORIGINS=True kar nakoneh :D vali kar mikoneh.
+
+link e dovvom ke github e in package hast jame tar az stackoverflow tozih dadan.
+و اما:
+معما چو حل گشت آسان شود
+hodoode 1 sa'at o nim kar kardam ta be natjie beresam. kolli code haye flutter ro taghir dadam. ama moshkel az oon
+nabood va bayad code haye django ro taghir midadam.
+tamame link e masirhayi ke raftam ro inja mizaram be 2 dalil:
+1- Bedoonam chetori be oon resideh boodam.
+2- Agar lazem shod roo shabihsaz ya server e vaghei ejaze dastrasi bedim taghirate lazem shayad inja to in linkha
+peyda shan. chon yadame roo emulator kheyli ha moshkel dashtand va too masire search dide boodam chand bar.
+
+https://stackoverflow.com/questions/76249587/how-to-connect-flutter-backend-with-django-server
+https://stackoverflow.com/questions/47372568/how-to-point-to-localhost8000-with-the-dart-http-package-in-flutter
+https://stackoverflow.com/questions/6760585/accessing-localhostport-from-android-emulator
+https://www.google.com/search?q=xmlhttprequest+error&oq=XMLHttpRequest+error&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyBwgBEAAYgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQc0MzhqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8
+https://stackoverflow.com/questions/64458696/in-flutter-web-getting-xmlhttprequest-error-while-making-http-call

@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'djoser',
     'debug_toolbar',
 
+    # an app for allowing flutter (or other applications) to make a connection with django server
+    'corsheaders',
+
     # my apps
     'myapi',
     'core',
@@ -59,6 +62,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # to setup corsheaders app (used for connectiong flutter to django)
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 INTERNAL_IPS = [
@@ -167,3 +174,8 @@ DJOSER = {
         'current_create': 'core.serializers.UserSerializer', 
     }
 }
+
+# for allowing origins that can send request to django server
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:56860', # لیستی از آدرس جاها با پورت هایی که میتونن به ما وصل شن.
+]
