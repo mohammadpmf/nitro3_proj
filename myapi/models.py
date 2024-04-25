@@ -56,8 +56,8 @@ class Movie(models.Model):
     release_date = models.DateField(blank=True, null=True)
     genre = models.ManyToManyField(to=GenreMovie, blank=True, related_name='movies')
     cast = models.ManyToManyField(to=Artist, blank=True, related_name='movies')
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    datetime_created = models.DateTimeField(auto_now_add=True, null=True)
+    datetime_modified = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
         return f"{self.title} ({self.year})"
@@ -79,8 +79,8 @@ class Serial(models.Model):
     end_release_date = models.DateField(blank=True, null=True)
     genre = models.ManyToManyField(to=GenreMovie, blank=True, related_name='series')
     cast = models.ManyToManyField(to=Artist, blank=True, related_name='series')
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    datetime_created = models.DateTimeField(auto_now_add=True, null=True)
+    datetime_modified = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
         if self.end_year is None:
@@ -99,8 +99,8 @@ class Music(models.Model):
     release_date = models.DateField(blank=True, null=True)
     genre = models.ManyToManyField(to=GenreMusic, blank=True, related_name='musics')
     other_singers = models.ManyToManyField(to=Artist, blank=True, related_name='musics')
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    datetime_created = models.DateTimeField(auto_now_add=True, null=True)
+    datetime_modified = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
         return f"{self.title} {self.main_singer} {self.year}"
