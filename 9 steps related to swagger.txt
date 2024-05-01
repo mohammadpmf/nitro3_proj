@@ -1,0 +1,4 @@
+1- pip install drf-yasg
+2- ezafe kardane app esh dar settings.py
+    'drf_yasg',
+3- taghirate lazem dar file e urls.py

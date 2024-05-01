@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'debug_toolbar',
+    'drf_yasg',
 
     # an app for allowing flutter (or other applications) to make a connection with django server
     'corsheaders',
