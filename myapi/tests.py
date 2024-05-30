@@ -38,3 +38,11 @@ class MyAPITest(TestCase):
         response = self.client.get(reverse('movie-detail', args=[1])) # این طوری دیگه ارور نمیده و پاس میشه. چون تو دیتابیس تست تازه یه آرتیس ساختیم و یه فیلم که کارگردانش همون هست و جزییات فیلم ۱ رو میتونه به ما بده. اما اگه بزنیم فیلم ۲۰ بهمون ارور ۴۰۴ میده چون وجود نداره
         self.assertEqual(response.status_code, 200)
         
+    def test_get_first_name_of_director(self):
+        response = self.client.get(reverse('movie-detail', args=[1]))
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        name = data.get('director_info').get('first_name')
+        self.assertEqual(name, self.movie.director.first_name) # OK
+        # self.assertEqual(name, "Ali") # Fail
+        
