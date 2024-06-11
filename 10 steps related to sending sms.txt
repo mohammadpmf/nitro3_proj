@@ -1,0 +1,8 @@
+1- saakhte account dar ghasedak.me
+2- ezafe kardane api key dar ghesmate Api Keys be hamrahe ip haye mojaz jahate ersal az tarighe python
+yani ip system i ke darim bahash kar mikonim va barname dare run mishe ro bayad benevisim.
+3- dar soorate niaz be sakhte otp, sakhte ghaleb dar ghesmate سرویس اعتبار سنجی
+لغو ۱۱ هم حتما در انتقای پیام باید باشه که قبول بشه.
+در صورتی که واقعی بخوایم، باید اکانت خریداری بشه. وگرنه فقط یکبار رمز رو به شماره ثبت نامی ارسال میکنه.
+4- ersale madarek va entezar jahate ta'ied dar soorati ke code ha kar nakard.
+5- estefade az code ha be shiveye delkhah. masalan file e views_extra_part.py
