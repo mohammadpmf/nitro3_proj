@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from .models import Movie, Artist
+from django.contrib.auth import get_user_model
 
 class MyAPITest(TestCase):
     @classmethod
@@ -19,6 +20,7 @@ class MyAPITest(TestCase):
             rating=7.3,
         )
         cls.movie.cast.set([cls.artist1, cls.artist2, cls.artist3]) # این رو اجازه نمیده موقع تعریف فیلم بذاریم. به خاطر منی تو منی بودن. خودش میگه که باید از تابع ست استفاده کنیم به جاش.
+        cls.admin = get_user_model().objects.create(username='admin', password='admin', email='a@b.com')
 
     def test_get_first_page_by_url(self):
         response = self.client.get('/')
@@ -60,3 +62,7 @@ class MyAPITest(TestCase):
         response = self.client.get(reverse('movie-detail', args=[1000]))
         self.assertEqual(response.status_code, 404)
 
+    def test_is_posting_a_movie_prohibited(self):
+        response = self.client.post(reverse('movie-list'), args=[self.movie])
+        self.assertEqual(response.status_code, 401) # چون شخص عادی نباید بتونه پست بسازه
+    
