@@ -9,6 +9,7 @@ admin.site.register(models.Movie)
 admin.site.register(models.Serial)
 admin.site.register(models.Music)
 admin.site.register(models.Image)
+admin.site.register(models.Comment)
 
 
 class StaffAdmin(admin.ModelAdmin):
