@@ -1,5 +1,6 @@
 https://stackoverflow.com/questions/35760943/how-can-i-enable-cors-on-django-rest-framework
 https://github.com/adamchainz/django-cors-headers#configuration
+pip install django-cors-headers
 
 akhar sar az in 2 ja negah kardam va moshkel hal shod.
 tozih in ke flutter i ke too chrome khorooji mide, har bar rooye ye port e motafavet google chrome ro baz mikoneh.

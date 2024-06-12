@@ -1,3 +1,4 @@
+0- pip install ghasedakpack
 1- saakhte account dar ghasedak.me
 2- ezafe kardane api key dar ghesmate Api Keys be hamrahe ip haye mojaz jahate ersal az tarighe python
 yani ip system i ke darim bahash kar mikonim va barname dare run mishe ro bayad benevisim.

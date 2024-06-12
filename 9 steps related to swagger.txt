@@ -1,3 +1,4 @@
+0- age mosheki tooye runserver bood: pip install setuptools
 1- pip install drf-yasg
 2- ezafe kardane app esh dar settings.py
     'drf_yasg',
