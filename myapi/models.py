@@ -126,7 +126,7 @@ class Image(models.Model):
 
 class Staff(models.Model):
     user = models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
-    phone_number = models.CharField(max_length=256, blank=True)
+    phone_number = models.CharField(max_length=14, blank=True, null=True, unique=True)
 
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
