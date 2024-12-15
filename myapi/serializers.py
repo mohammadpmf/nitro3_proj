@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Artist, GenreMovie, GenreMusic, Movie, Music, Serial, Staff
+from .models import Artist, GenreMovie, GenreMusic, Movie, Music, Serial, Staff, Comment
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -21,13 +21,29 @@ class GenreMusicSerializer(serializers.ModelSerializer):
         fields = ['id', 'title']
 
 
+class StaffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Staff
+        fields = ['user', 'username', 'email', 'full_name',  'phone_number']
+        read_only_fields = ['user']
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ['user', 'text', 'is_active', 'movie', 'serial', 'music']
+
+    user = StaffSerializer()
+
+
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['id', 'title', 'year', 'runtime', 'runtime_minutes',
+        fields = ['comments', 'id', 'title', 'year', 'runtime', 'runtime_minutes',
                   'status', 'director', 'director_info', 'country', 'plot', 'poster',
                   'rating', 'release_date', 'genre', 'cast']
     
+    comments = CommentSerializer(many=True)
     runtime_minutes = serializers.SerializerMethodField()
     director = serializers.PrimaryKeyRelatedField(
         queryset = Artist.objects.all()
@@ -91,12 +107,6 @@ class MusicSerializer(serializers.ModelSerializer):
         s = t%60
         return f"{m:02}:{s:02}"
     
-
-class StaffSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Staff
-        fields = ['user', 'username', 'email', 'full_name',  'phone_number']
-        read_only_fields = ['user']
 
 
 # class ArtistSerializer(serializers.Serializer):
